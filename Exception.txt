@@ -1,0 +1,3 @@
+2	EXCEPTION
+
+Exception ex is generic. It catches the NullPointerException before the specific code written for it does.
