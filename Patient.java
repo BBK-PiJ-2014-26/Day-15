@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Patient {
 	private int yearOfBirth;
@@ -11,7 +12,7 @@ public class Patient {
 	public Patient(String name, int yearOfBirth) throws IllegalArgumentException {
 		this.name = name;
 		int age = 2015 - yearOfBirth;
-		if (age < 0 && age > 130) {
+		if (age < 0 || age > 130) {
 			throw new IllegalArgumentException();
 		} else {
 			this.yearOfBirth = yearOfBirth;
@@ -24,7 +25,8 @@ public class Patient {
 	public static Patient requestPatient() {
 		String name = requestPatientName();
 		int yearOfBirth = requestYearOfBirth();
-		Patient x = new Patient(name, yearOfBirth);
+		Patient result = new Patient(name, yearOfBirth);
+		return result;
 	}
 
 	/**
