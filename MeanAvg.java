@@ -7,10 +7,11 @@ public class MeanAvg {
 	 */
 	public static void mean() {
 		double total = 0;
-		for (int i = 0; i < 10; i++) {
+		int inputTotal = requestInputTotal();
+		for (int i = 0; i < inputTotal; i++) {
 			total = total + requestNumber();
 		}
-		System.out.println("The mean average of your inputs is " + (total / 10));
+		System.out.println("The mean average of your inputs is " + (total / inputTotal));
 	}
 
 	/**
@@ -25,6 +26,22 @@ public class MeanAvg {
 		} else {
 			System.out.println("Not a number, please try again.");
 			result = requestNumber();
+		}
+		return result;
+	}
+
+	/**
+	 * Asks a user how many inpus they wish to make.
+	 */
+	public static int requestInputTotal() {
+		int result = 0;
+		System.out.print("To calculate the mean average, first, please tell me how many inputs you wish to make: ");
+		Scanner sc = new Scanner(System.in);
+		if (sc.hasNextInt()) {
+			result = sc.nextInt();
+		} else {
+			System.out.println("Not a number, please try again.");
+			result = requestInputTotal();
 		}
 		return result;
 	}
